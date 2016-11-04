@@ -210,7 +210,18 @@ public class Island {
 
 /************************************ ISLAND CREATE ************************************/
     
-    public static void claimIsland(){
+    public static void claimIsland(Player p){
+        int maxislands = 1;
+        int acquiredislands = 0;
+        IslandData pd = hashNameToIsland.get(p.getName());
         
+        if pd.owner != null && acquiredislands >= maxislands {
+            p.sendMessage(TextFormat.RED + "You already own the maximum allowed amount of islands! " + TextFormat.GRAY + "(Max of" + ")");
+            return;
+        }
+        
+        p.sendMessage(TextFormat.GREEN + "Acquiring island...");
+        
+        //Generate island
     }
 }
